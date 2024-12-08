@@ -1,0 +1,38 @@
+.rating {
+  margin: 0.5rem;
+}
+.rating svg {
+  color: rgb(255, 132, 17);
+}
+.rating-text {
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+}
+.product-title {
+  line-height: 1.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reviews h2 {
+  font-size: 24px;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  padding: 12px;
+}
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  padding: 35px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+}
