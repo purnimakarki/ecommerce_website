@@ -4,7 +4,7 @@ import notFoundHandler from "./middleware/notFoundMiddleware.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 import logger from "./middleware/logger.js";
 import path from "path";
-
+import cors from "cors";
 // router imports
 import userRouter from "./routes/user.router.js";
 import productRouter from "./routes/product.router.js";
@@ -12,6 +12,13 @@ import orderRouter from "./routes/order.router.js";
 import uploadRouter from "./routes/upload.router.js";
 
 const app = express();
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+
+
 
 // middlewares
 app.use(express.json());
@@ -21,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 const __dirname = path.resolve();
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 app.use(cookieParser());
 app.use(logger);
@@ -49,9 +57,3 @@ app.use(errorHandler);
 
 export { app };
 
-import cors from 'cors';
-
-app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  credentials: true
-}));

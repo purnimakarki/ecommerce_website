@@ -41,7 +41,6 @@ function ProfilePage() {
           email,
           password,
         }).unwrap();
-        console.log(resp);
         dispatch(setCredentials(resp.user));
         toast.success(resp.message);
       }

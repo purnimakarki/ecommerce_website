@@ -10,7 +10,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  console.log("UserInfo", userInfo);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, { isLoading }] = useLoginMutation();
@@ -25,7 +24,6 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       let resp = await login({ email, password }).unwrap();
-      console.log(resp);
       dispatch(setCredentials(resp.user));
       toast.success(resp.message);
     } catch (err) {

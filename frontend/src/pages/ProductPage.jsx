@@ -30,12 +30,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/v1/products/" + id)
-  //     .then((resp) => setProduct(resp.data))
-  //     .catch((err) => console.log("ERROR::", err.message));
-  // }, []);
+  
   const { data: product, isLoading, error } = useGetProductByIdQuery(id);
   const {
     data: reviewStatus,
@@ -43,7 +38,6 @@ const ProductPage = () => {
     error: reviewStatusError,
   } = useCheckReviewStatusQuery(id);
   const [addReview, { isLoading: reviewLoading }] = useAddReviewMutation();
-  console.log(product);
   console.log("Error: ", error);
   const addToCartHandler = (item) => {
     dispatch(addToCart(item));
